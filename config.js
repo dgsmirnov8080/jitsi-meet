@@ -163,7 +163,7 @@ var config = {
     // Enabling this will run the lib-jitsi-meet no audio detection module which
     // will notify the user if the current selected microphone has no audio
     // input and will suggest another valid device if one is present.
-    enableNoAudioDetection: true,
+    enableNoAudioDetection: false,
 
     // Enabling this will show a "Save Logs" link in the GSM popover that can be
     // used to collect debug information (XMPP IQs, SDP offer/answer cycles)
@@ -178,22 +178,22 @@ var config = {
     // notify the user if there is noise, other than voice, coming from the current
     // selected microphone. The purpose it to let the user know that the input could
     // be potentially unpleasant for other meeting participants.
-    enableNoisyMicDetection: true,
+    enableNoisyMicDetection: false,
 
     // Start the conference in audio only mode (no video is being received nor
     // sent).
     // startAudioOnly: false,
 
     // Every participant after the Nth will start audio muted.
-    // startAudioMuted: 10,
+    startAudioMuted: 1,
 
     // Start calls with audio muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithAudioMuted: false,
+    startWithAudioMuted: true,
 
     // Enabling it (with #params) will disable local audio output of remote
     // participants and to enable it back a reload is needed.
-    // startSilent: false,
+    startSilent: true,
 
     // Enables support for opus-red (redundancy for Opus).
     // enableOpusRed: false,
@@ -307,7 +307,7 @@ var config = {
     //      // Show users the current tab is the preferred capture source, default: false.
     //      desktopPreferCurrentTab: false,
     //      // Allow users to select system audio, default: include.
-    //      desktopSystemAudio: 'include',
+    //      desktopSystemAudio: 'exclude',
     //      // Allow users to seamlessly switch which tab they are sharing without having to select the tab again.
     //      desktopSurfaceSwitching: 'include',
     //      // Allow a user to be shown a preference for what screen is to be captured, default: unset.
@@ -863,6 +863,16 @@ var config = {
     //     [ 'microphone', 'camera', 'chat' ],
     //     [ 'microphone', 'camera' ]
     // ],
+
+     mainToolbarButtons: [
+         [ 'microphone', 'camera', 'desktop', 'chat', 'reactions', 'participants-pane', 'tileview' ],
+         [ 'microphone', 'camera', 'desktop', 'chat', 'participants-pane', 'tileview' ],
+         [ 'microphone', 'camera', 'desktop', 'chat', 'participants-pane' ],
+         [ 'microphone', 'camera', 'desktop', 'chat', 'participants-pane' ],
+         [ 'microphone', 'camera', 'chat', 'participants-pane' ],
+         [ 'microphone', 'camera', 'chat' ],
+         [ 'microphone', 'camera' ]
+     ],
 
     // Toolbar buttons which have their click/tap event exposed through the API on
     // `toolbarButtonClicked`. Passing a string for the button key will
@@ -1441,7 +1451,7 @@ var config = {
     // },
 
     // When true, virtual background feature will be disabled.
-    // disableVirtualBackground: false,
+     disableVirtualBackground: true,
 
     // When true the user cannot add more images to be used as virtual background.
     // Only the default ones from will be available.
@@ -1466,7 +1476,7 @@ var config = {
     // If a label's id is not in any of the 2 arrays, it will not be visible at all on the header.
     // conferenceInfo: {
     //     // those labels will not be hidden in tandem with the toolbox.
-    //     alwaysVisible: ['recording', 'raised-hands-count'],
+    //     alwaysVisible: ['recording'],
     //     // those labels will be auto-hidden in tandem with the toolbox buttons.
     //     autoHide: [
     //         'subject',
